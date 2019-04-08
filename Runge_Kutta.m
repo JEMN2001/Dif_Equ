@@ -1,12 +1,13 @@
-function [tf, yf] = Runge_Kutta(f,t0,y0,n,h)
-    yf = [y0];
-    tf = [t0];
-    for(i=2:n-1)
-        k1 = f(tf(i-1),yf(i-1));
-        k2 = f(tf(i-1)+0.5*h,yf(i-1)+0.5*k1*h);
-        k3 = f(tf(i-1)+0.5*h,yf(i-1)+0.5*k2*h);
-        k4 = f(tf(i-1)+h,yf(i-1)+k3*h);
-        yf(i) = yf(i-1)+(1/6)*h*(k1+2*k2+2*k3+k4);
-        tf(i) = tf(i-1)+h;
+function yf = Runge_Kutta(f,T,y0,h)
+    yf = y0;
+    n = int8((T(2)-T(1))/h);
+    t = T(1);
+    for(i=1:n)
+        k1 = f(t,yf);
+        k2 = f(t+0.5*h,yf+0.5*k1*h);
+        k3 = f(t+0.5*h,yf+0.5*k2*h);
+        k4 = f(t+h,yf+k3*h);
+        yf = yf+(1/6)*h*(k1+2*k2+2*k3+k4);
+        t = t+h;
     end
 end

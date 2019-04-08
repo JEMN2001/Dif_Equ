@@ -1,8 +1,9 @@
-function [tf, yf] = Euler_m(f,t0,y0,n,h)
-    yf = [y0];
-    tf = [t0];
-    for(i=2:n-1)
-        yf(i) = yf(i-1)+h*0.5*(f(tf(i-1),yf(i-1))+f(tf(i-1)+h,yf(i-1)+h*f(tf(i-1),yf(i-1))));
-        tf(i) = tf(i-1)+h;
+function yf = Euler_m(f,T,y0,h)
+    yf = y0;
+    t = T(1);
+    n = int8((T(2)-T(1))/h);
+    for(i=1:n)
+        yf = yf+h*0.5*(f(t,yf)+f(t+h,yf+h*f(t,yf)));
+        t = t+h;
     end
 end
