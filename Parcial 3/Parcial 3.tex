@@ -15,34 +15,34 @@
 
 
 \section{Introducción}
-En el estudio de ecuaciones diferenciales ordinarias, surgen problemas (en este caso problemas de valor inicial) a los cuales no se les puede obtener una solución de manera analitica, por esta razón nacen lo que se conoce como los metodos númericos, cuyo objetivo es encontrar un valor $y_{f}$ de la función deseada, y(x) dados las condiciones de la ecuación diferencial, y un punto inicial.\\
-Para la realización de este trabajo se usaran los metodos númericos para la solución de una ecuación diferencial de primer orden, es decir de la forma
+En el estudio de ecuaciones diferenciales ordinarias, surgen problemas (en este caso problemas de valor inicial) a los cuales no se les puede obtener una solución de manera analítica, por esta razón nacen lo que se conoce como los metodos númericos, cuyo objetivo es encontrar un valor $y_{f}$ de la función deseada, y(x) dados las condiciones de la ecuación diferencial, y un punto inicial.\\
+Para la realización de este trabajo se usaran los métodos númericos para la solución de una ecuación diferencial de primer orden, es decir de la forma
 \begin{equation}
 \frac{dy}{dx} = f(x,y)
 \label{f}
 \end{equation}
-Mas en especifico se usaran los metodos de Euler, Euler mejorado y Runge-Kutta.\\\\
-Todos los codigos empleados para la realización de este informe se encuentran en el repositorio \textit{https://github.com/JEMN20001/Dif\_Equ}
+Específicamente se usarán los métodos de Euler, Euler mejorado y Runge-Kutta.\\\\
+Todos los códigos empleados para la realización de este informe se encuentran en el repositorio \textit{https://github.com/JEMN20001/Dif\_Equ}
 \section{Metodos}
 \subsection{Euler}
-El metodo de Euler, así llamado en honor al matemático Leonhard Euler (1707-1783) plantea lo siguiente:\\
+El método de Euler, así llamado en honor al matemático Leonhard Euler (1707-1783) plantea lo siguiente:\\
 
 Se sabe que $$\frac{dy}{dx} = \lim\limits_{h\to0}\frac{y(x+h)-y(x)}{h}$$
-Ahora bien, se puede afirmar que $$\frac{dy}{dx} \approx \frac{y[x+h)]-y(x)}{h}$$ para valores de h cercanos a 0, por lo que reemplazando en (\ref{f}), se llega a la conclusión que
+Ahora bien, se puede afirmar que $$\frac{dy}{dx} \approx \frac{y(x+h)-y(x)}{h}$$ para valores de h cercanos a 0, por lo que remplazando en (\ref{f}), se llega a la conclusión que
 \begin{equation}
  y(x+h) \approx y(x)+h*f(x,y(x))
  \label{euler}
 \end{equation}
 por lo que dado un punto inicial $(x_{0},y_{0})$ y la ecuación $y' = f(x,y)$ podemos calcular un punto $(x_{f},y(x_{f}))$ de manera aproximada, utilizando (\ref{euler}).
 \subsection{Euler mejorado}
-El metodo de Euler mejorado, usa el mismo razonamiento que el metodo de Euler, modificando (\ref{euler}) de la siguiente manera
+El método de Euler mejorado, usa el mismo razonamiento que el método de Euler, modificando (\ref{euler}) de la siguiente manera
 \begin{equation}
 y(x+h) \approx y(x)+\frac{h}{2}(f(x,y(x))+f(x+h,y(x)+hf(x,y(x))))
 \label{euler_m}
 \end{equation}
-que simplemente es un promedio del metodo de euler
+que simplemente es un promedio del método de euler
 \subsection{Runge-Kutta}
-Finalmente, el metodo de Runge-Kutta es un metodo más sofisticado, el plantea las siguientes acuaciones $$K_{1} = f(x,y(x))$$$$K_{2} = f(x+\frac{h}{2},y(x)+\frac{hK_{1}}{2})$$$$K_3= f(x+\frac{h}{2}, y(x)+\frac{hK_{2}}{2})$$$$K_{4} = f(x+h, y(x)+hK_{3})$$
+Finalmente, el método de Runge-Kutta es un método más sofisticado, el plantea las siguientes acuaciones $$K_{1} = f(x,y(x))$$$$K_{2} = f(x+\frac{h}{2},y(x)+\frac{hK_{1}}{2})$$$$K_3= f(x+\frac{h}{2}, y(x)+\frac{hK_{2}}{2})$$$$K_{4} = f(x+h, y(x)+hK_{3})$$
 Y concluye que 
 \begin{equation}
 y(x+h) \approx y(x)+\frac{h}{6}(K_{1}+2K_{2}+2K_{3}+K_{4})
@@ -50,12 +50,12 @@ y(x+h) \approx y(x)+\frac{h}{6}(K_{1}+2K_{2}+2K_{3}+K_{4})
 \end{equation}
 
 \section{Comparación}
-Para la revisión de estos tres metodos se hizo uso de la ecuación diferencial
+Para la revisión de estos tres métodos se hizo uso de la ecuación diferencial
 \begin{equation}
 \frac{dy}{dt} = 1-t+4y~~y(0) = 1
 \label{problema1}
 \end{equation}, la cual tiene solución analitica $$y(x) = \frac{4t+19e^{4t} -3}{16}$$\\
-Con el uso de MATLAB se realizo una comparaciín de esta ecuación con distintos valores de t y h, los valores obtenidos se encuentran en la Tabla \ref{table1}
+Con el uso de MATLAB se realizó una comparación de esta ecuación con distintos valores de t y h, los valores obtenidos se encuentran en la Tabla \ref{table1}
 
 \begin{table}[h]
 	\centering
@@ -84,13 +84,13 @@ Con el uso de MATLAB se realizo una comparaciín de esta ecuación con distintos
 		2&3029.3&3484.2&3496.7&3532.9&3490.6&3535.9&3539.9&3540.2\\
 		\hline
 	\end{tabular}
-	\caption{Comparación de los Metodos}
+	\caption{Comparación de los Métodos}
 	\label{table1}
 \end{table}
 \newpage
 \section{Puntos}
 \subsection{Graficar una Solucion}
-A continucación se presenta una grafica de la solucion de la ecuación  (\ref{problema1}) en el intervalo [0,2], generado con el metodo de Euler
+A continucación se presenta una gráfica de la solución de la ecuación  (\ref{problema1}) en el intervalo [0,2], generado con el método de Euler
 \begin{figure}[h]
 	\centering
 	\caption{}
@@ -98,7 +98,7 @@ A continucación se presenta una grafica de la solucion de la ecuación  (\ref{p
 	\label{graf1}
 \end{figure}
 \subsection{Comparar Soluciones}
-La figura \ref{graf2} representa laa gráficas de la solución de (\ref{problema1}) para distintos h, y la gráfica de la solución analitica
+La figura \ref{graf2} representa las gráficas de la solución de (\ref{problema1}) para distintos h, y la gráfica de la solución analítica
 \begin{figure}[h]
 	\centering
 	\caption{}
@@ -106,7 +106,7 @@ La figura \ref{graf2} representa laa gráficas de la solución de (\ref{problema
 	\label{graf2}
 \end{figure}
 \subsection{Calculo de Errores}
-Teniendo en cuenta que la ecuación cuenta con una solución analitica, podemos calcular el error como $Err(t) = |y(t)-w(t)|$ donde y es la solución analitica, y w es el valor obtenido con el metodo de euler
+Teniendo en cuenta que la ecuación cuenta con una solución analítica, podemos calcular el error como $Err(t) = |y(t)-w(t)|$ donde y es la solución analítica, y \textit{w} es el valor obtenido con el método de euler
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
@@ -131,7 +131,7 @@ se quiere comprobar que la solución al sistema es
 y=2+e^{-x^3}
 \label{solcuion2}
 \end{equation} 
-Usando MATLAB, se graficaron las soluciones obtenidas con el metodo de euler para distintos h, y se grafico la funcion (\ref{solcuion2}).
+Usando MATLAB, se graficaron las soluciones obtenidas con el método de euler para distintos h, y se graficó la función (\ref{solcuion2}).
 \begin{figure}[h]
 	\centering
 	\caption{}
@@ -139,7 +139,7 @@ Usando MATLAB, se graficaron las soluciones obtenidas con el metodo de euler par
 	\label{graf3}
 \end{figure}
 \newpage
-ademas  se calcularon varios errores presentes en la Tabla \ref{table3}
+además  se calcularon varios errores presentes en la Tabla \ref{table3}
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
@@ -157,10 +157,10 @@ ademas  se calcularon varios errores presentes en la Tabla \ref{table3}
 	\end{tabular}
 	\caption{Tabla con los Errores con Euler}
 	\label{table3}
-\end{table}
+\end{table}\\
 Por lo que podemos conlcuir que la ecuacion(\ref{solcuion2}) es la solución del problema inicial.
 \subsection{Runge-Kutta}
-Con la misma ecuacción del puto anterior, pero usando el metodo de Runge-Kutta, se obtuvieron los siguientes resultados
+Con la misma ecuacción del punto anterior, pero usando el método de Runge-Kutta, se obtuvieron los siguientes resultados
 \begin{figure}[h]
 	\centering
 	\caption{}
@@ -168,7 +168,7 @@ Con la misma ecuacción del puto anterior, pero usando el metodo de Runge-Kutta,
 	\label{graf4}
 \end{figure}
 \newpage
-Tambien se calcularon los errores
+También se calcularon los errores
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
@@ -194,9 +194,9 @@ Dada la ecuación
 	\label{Pol}
 \end{equation}
 Se puede hacer un cambio de variables $$x = u$$$$y = u'$$
-para llegar a un sistema de ecuaciones de primer orden de la forma $$(x',y') = (y, -x+\mu(1-x^2)y),~~(x0,y0)=(1,0)$$ y adaptando el metodo de Runge-Kutta, podemos calcular el valor aproximado en un momento t.
+para llegar a un sistema de ecuaciones de primer orden de la forma $$(x',y') = (y, -x+\mu(1-x^2)y),~~(x0,y0)=(1,0)$$ y adaptando el método de Runge-Kutta, podemos calcular el valor aproximado en un momento t.
 
-Tomando $\mu = 0.2$ y con 3 valores distontos para h se obtuvieron las gráficas
+Tomando $\mu = 0.2$ y con 2 valores distontos para h se obtuvieron las gráficas
 \begin{figure}[h]
 	\centering
 	\caption{}
@@ -208,8 +208,8 @@ Tomando $\mu = 0.2$ y con 3 valores distontos para h se obtuvieron las gráficas
 	\caption{}
 	\includegraphics[scale=0.45]{graf6.png}
 	\label{graf6}
-\end{figure}
-Variando las condiciones iniciales a (a,b) (en este caso (-1,-2)) se puede observar que la gráfica de x(t) se desplaza a unidades en la dirección correspondiente, y y(t) se desplaza b unidades en la direccion correspondiente (la cual está dada por el signo de a y de b), esto se puede observar en la figura (\ref{fig8})
+\end{figure}\\
+Variando las condiciones iniciales a (a,b) (en este caso (-1,-2)) se puede observar que la gráfica de x(t) se desplaza a unidades en la dirección correspondiente, y y(t) se desplaza b unidades en la dirección correspondiente (la cual está dada por el signo de a y de b), esto se puede observar en la figura (\ref{graf8})
 \begin{figure}[h]
 	\centering
 	\caption{}
@@ -217,13 +217,13 @@ Variando las condiciones iniciales a (a,b) (en este caso (-1,-2)) se puede obser
 	\label{graf8}
 \end{figure}
 \newpage
-Y finalmente si se gráfica y(t) con respecto a x(t) se obtiene la gráfica de la figura \ref{graf9}
+Si se gráfica y(t) con respecto a x(t) se obtiene la gráfica de la figura \ref{graf9}
 \begin{figure}[h]
 \centering
 \caption{}
 \includegraphics[scale=0.45]{graf9.png}
 \label{graf9}
-\end{figure}
+\end{figure}\\
 Finalmente modificando los valores de $\mu$ podemos observar que la gráfica de y con respecto a x se estrecha o se agranda, adicionandole a medida que $\mu$ crece se forma una nueva forma alrededor del origen, este es el gráfico para $\mu = 2$ 
 \begin{figure}[h]
 	\centering
@@ -232,6 +232,7 @@ Finalmente modificando los valores de $\mu$ podemos observar que la gráfica de 
 	\label{graf10}
 \end{figure}
 \section{Conclusiones}
-Con respecto a los 3 metodos presentados en este informe, es evidente que el metodo de Runge-Kutta es el que más se acerca a la solución real, esto se puede observar en las distintas tablas de errores presentadas en este informe.\\\\
-Con respecto al problema de Van Der Pol hay mucho que analizar, por ejemplo la importancia del parametro $\mu$ el cual determina el ciclo que va a seguir la gráfica y(t) con respecto a x(t). El valor incial, el cual determina el punto en el que se inicia el ciclo, y esto es importante para poder modelar bien el sistema que se va a estudiar.
+Con respecto a los 3 metodos presentados en este informe, es evidente que el método de Runge-Kutta es el que más se acerca a la solución real, esto se puede observar en las distintas tablas de errores presentadas en este informe.\\\\
+Con respecto al problema de Van Der Pol hay mucho que analizar, por ejemplo la importancia del parametro $\mu$ el cual determina el ciclo que va a seguir la gráfica y(t) con respecto a x(t). El valor incial, el cual determina el punto en el que se inicia el ciclo, y esto es importante para poder modelar bien el sistema que se va a estudiar.\\\\
+Esto nos permite concluir que el uso de ecuaciones diferenciales ordinarias nos ayuda a modelar y/o estudiarsistemas complejos, de una manera relativamente sencilla, lo que es esencial en el área de las matemáticas aplicadas
 \end{document}
