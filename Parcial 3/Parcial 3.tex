@@ -89,85 +89,14 @@ Con el uso de MATLAB se realizó una comparación de esta ecuación con distinto
 \end{table}
 \newpage
 \section{Puntos}
-\subsection{Graficar una Solucion}
-A continucación se presenta una gráfica de la solución de la ecuación  (\ref{problema1}) en el intervalo [0,2], generado con el método de Euler
-\begin{figure}[h]
-	\centering
-	\caption{}
-	\includegraphics[scale=0.3]{graf1.png}
-	\label{graf1}
-\end{figure}
-\subsection{Comparar Soluciones}
-La figura \ref{graf2} representa las gráficas de la solución de (\ref{problema1}) para distintos h, y la gráfica de la solución analítica
-\begin{figure}[h]
-	\centering
-	\caption{}
-	\includegraphics[scale=0.52]{graf2.png}
-	\label{graf2}
-\end{figure}
-\subsection{Calculo de Errores}
-Teniendo en cuenta que la ecuación cuenta con una solución analítica, podemos calcular el error como $Err(t) = |y(t)-w(t)|$ donde y es la solución analítica, y \textit{w} es el valor obtenido con el método de euler
-\begin{table}[h]
-	\centering
-	\begin{tabular}{|c|c|c|c|}
-		\hline
-		t & h=0.1 & h=0.05 & h = 0.01 \\
-		\hline
-		0.5&2.3878&1.4218&0.3353\\
-		\hline
-		1&30.4863&19.3094&4.8607\\
-		\hline
-		1.5&294.3346&197.1873&52.8510\\
-		\hline
-		2&2546.3&1794.5&510.8722\\
-		\hline
-	\end{tabular}
-\caption{Tabla con los Errores}
-\end{table}
-\subsection{Euler}
-Se tiene la ecuación $$\frac{dy}{dx}+3x^2y=6x^2~~y(0)=3$$
-se quiere comprobar que la solución al sistema es
-\begin{equation}
-y=2+e^{-x^3}
-\label{solcuion2}
-\end{equation} 
-Usando MATLAB, se graficaron las soluciones obtenidas con el método de euler para distintos h, y se graficó la función (\ref{solcuion2}).
-\begin{figure}[h]
-	\centering
-	\caption{}
-	\includegraphics[scale=0.45]{graf3.png}
-	\label{graf3}
-\end{figure}
-\newpage
-además  se calcularon varios errores presentes en la Tabla \ref{table3}
-\begin{table}[h]
-	\centering
-	\begin{tabular}{|c|c|c|c|}
-		\hline
-		t & h=0.1 & h=0.001 & h = 0.0001 \\
-		\hline
-		0.5&0.0299&0.0031&$3.0606x10^{-4}$\\
-		\hline
-		1&0.0249&0.0022&$2.2097x10^{-4}$\\
-		\hline
-		1.5&0.0140&0.0012&$1.1856x10^{-4}$\\
-		\hline
-		2&$3.3593x10^{-4}$&$7.2081x10^{-5}$&$7.6048x10^{-6}$\\
-		\hline
-	\end{tabular}
-	\caption{Tabla con los Errores con Euler}
-	\label{table3}
-\end{table}\\
-Por lo que podemos conlcuir que la ecuacion(\ref{solcuion2}) es la solución del problema inicial.
 \subsection{Runge-Kutta}
-Con la misma ecuacción del punto anterior, pero usando el método de Runge-Kutta, se obtuvieron los siguientes resultados
+Dada la ecuación $$\frac{dy}{dx}+3x^2y=6x^2,~~y(0)=3$$ y utilizando el metodo de Runge-Kutta se calculó la solución con distintos valores de h, los datos obtenidos fueron gráficados en (\ref{graf4})
 \begin{figure}[h]
 	\centering
 	\caption{}
 	\includegraphics[scale=0.45]{graf4.png}
 	\label{graf4}
-\end{figure}
-\newpage
+\end{figure}\\
 También se calcularon los errores
 \begin{table}[h]
 	\centering
@@ -202,29 +131,17 @@ Tomando $\mu = 0.2$ y con 2 valores distontos para h se obtuvieron las gráficas
 	\caption{}
 	\includegraphics[scale=0.45]{graf5.png}
 	\label{graf5}
-\end{figure}
-\begin{figure}[h]
-	\centering
-	\caption{}
-	\includegraphics[scale=0.45]{graf6.png}
-	\label{graf6}
 \end{figure}\\
-Variando las condiciones iniciales a (a,b) (en este caso (-1,-2)) se puede observar que la gráfica de x(t) se desplaza a unidades en la dirección correspondiente, y y(t) se desplaza b unidades en la dirección correspondiente (la cual está dada por el signo de a y de b), esto se puede observar en la figura (\ref{graf8})
-\begin{figure}[h]
-	\centering
-	\caption{}
-	\includegraphics[scale=0.45]{graf8.png}
-	\label{graf8}
-\end{figure}
-\newpage
-Si se gráfica y(t) con respecto a x(t) se obtiene la gráfica de la figura \ref{graf9}
+Variando las condiciones iniciales a (a,b) (en este caso (-1,-2)) se puede observar que la gráfica de x(t) se desplaza a unidades en la dirección correspondiente, y y(t) se desplaza b unidades en la dirección correspondiente (la cual está dada por el signo de a y de b).\\
+Si se gráfica y(t) con respecto a x(t) con distintos puntos iniciales se obtiene la gráfica de la figura \ref{graf9},\\
 \begin{figure}[h]
 \centering
 \caption{}
 \includegraphics[scale=0.45]{graf9.png}
 \label{graf9}
 \end{figure}\\
-Finalmente modificando los valores de $\mu$ podemos observar que la gráfica de y con respecto a x se estrecha o se agranda, adicionandole a medida que $\mu$ crece se forma una nueva forma alrededor del origen, este es el gráfico para $\mu = 2$ 
+\newpage
+Finalmente modificando los valores de $\mu$ podemos observar que la gráfica de y con respecto a x se estrecha o se agranda, adicionandole a medida que $\mu$ crece se forma una nueva forma alrededor del origen, este es el gráfico para distintos $\mu$\\
 \begin{figure}[h]
 	\centering
 	\caption{}
